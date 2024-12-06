@@ -57,7 +57,13 @@ body.dark-mode {
 
 
 
+img {
+    transition: transform 0.3s ease-in-out;
+}
 
+img:hover {
+    transform: scale(1.1);  /* L'image grossit quand la souris passe dessus */
+}
 
 
         
@@ -93,3 +99,20 @@ body.dark-mode {
     </footer>
 </body>
 </html>
+
+
+
+
+
+<form action="https://formspree.io/f/ton_form_id" method="POST">
+  <label for="name">Nom:</label>
+  <input type="text" id="name" name="name" required>
+  
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+  
+  <label for="message">Message:</label>
+  <textarea id="message" name="message" required></textarea>
+  
+  <button type="submit">Envoyer</button>
+</form>
