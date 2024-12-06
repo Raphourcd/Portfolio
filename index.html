@@ -60,51 +60,88 @@
 
 
 
-<div style="display: flex; justify-content: center; margin: 50px;">
-    <div style="position: relative; width: 80%; max-width: 800px; overflow: hidden;">
-        <div id="image-slider" style="display: flex; transition: transform 0.5s ease;">
-            <img src="https://lh3.googleusercontent.com/pw/AP1GczO5TlrpalFyrnLbNOb4ij2jy-OqjGVqE9bgNc840iCAFARzH-qpLm74Ul8a-8_CVKyraq2jqM0V6vDEqgz9Bd1GFeEyth30slOiepANtvKtRSUR7w=w1440-h540-no" 
-                alt="Image 1" style="max-width: 100%; height: auto; flex-shrink: 0;">
-            <img src="https://lh3.googleusercontent.com/pw/AP1GczOYx_XZfMn1oPlYG3PHoDY1ZgfB4BZMXnWV75YDTebrk9T6itH1Af6wxvEYAQap2cXAuHe6Po2hGL2b7X9oHHJc2Xse-3EmstoQ3uU_E2TtJADJCg=w1440-h540-no" 
-                alt="Image 2" style="max-width: 100%; height: auto; flex-shrink: 0;">
-        </div>
-        <button id="prev-button" 
-                style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background-color: #fff; border: none; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.3); cursor: pointer; padding: 10px; display: none;">
-            &#9664;
-        </button>
-        <button id="next-button" 
-                style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background-color: #fff; border: none; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.3); cursor: pointer; padding: 10px;">
-            &#9654;
-        </button>
-    </div>
-</div>
 
-<script>
-    const slider = document.getElementById("image-slider");
-    const prevButton = document.getElementById("prev-button");
-    const nextButton = document.getElementById("next-button");
 
-    let currentIndex = 0;
 
-    function updateArrows() {
-        prevButton.style.display = currentIndex === 0 ? "none" : "block";
-        nextButton.style.display = currentIndex === slider.children.length - 1 ? "none" : "block";
-    }
 
-    prevButton.addEventListener("click", () => {
-        currentIndex = Math.max(currentIndex - 1, 0);
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        updateArrows();
-    });
 
-    nextButton.addEventListener("click", () => {
-        currentIndex = Math.min(currentIndex + 1, slider.children.length - 1);
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        updateArrows();
-    });
 
-    updateArrows(); // Initialize arrows visibility
-</script>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Raphaël Richard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F5F5F5;
+            color: #333;
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 30px auto; /* Espace entre les images */
+        }
+
+        header {
+            background-color: #050505;
+            color: white;
+            padding: 1em 0;
+        }
+
+        button {
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #444;
+        }
+
+        body.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Portfolio Raphaël Richard</h1>
+    </header>
+
+    <button id="darkModeToggle">Mode Sombre</button>
+
+    <!-- Images -->
+    <img src="https://lh3.googleusercontent.com/pw/AP1GczO5TlrpalFyrnLbNOb4ij2jy-OqjGVqE9bgNc840iCAFARzH-qpLm74Ul8a-8_CVKyraq2jqM0V6vDEqgz9Bd1GFeEyth30slOiepANtvKtRSUR7w=w1440-h540-no" alt="Image 1">
+    <img src="https://lh3.googleusercontent.com/pw/AP1GczOYx_XZfMn1oPlYG3PHoDY1ZgfB4BZMXnWV75YDTebrk9T6itH1Af6wxvEYAQap2cXAuHe6Po2hGL2b7X9oHHJc2Xse-3EmstoQ3uU_E2TtJADJCg=w1440-h540-no" alt="Image 2">
+    <img src="https://lh3.googleusercontent.com/pw/AP1GczM-sTTRnF0knbhzHc1jjiaNjpP_PFKZ69i2LbkQoyfYtWNFG2goqfXLmegnjy1o9kaHAsF093NWLa61tKvdHVoywd3o3sJjI5tNYFkH_UNSONCUjg=w1440-h540-no" alt="Image 3">
+
+    <script>
+        document.getElementById('darkModeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
 
 
 
