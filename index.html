@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -27,15 +26,15 @@
         #image-slider {
             display: flex;
             justify-content: center;
+            width: 100vw; /* Utilise la largeur entière de la fenêtre */
             overflow: hidden;
-            width: 100%; /* Ajuste le slider pour occuper toute la largeur */
+            position: relative;
         }
 
         #image-slider img {
-            width: 100%; /* Cela garantit que l'image occupe toute la largeur du conteneur */
-            height: auto; /* Conserve les proportions de l'image */
-            flex-shrink: 0; /* Empêche l'image de se réduire */
-            object-fit: cover; /* S'assure que l'image couvre toute la zone sans déformation */
+            width: 100vw; /* Chaque image occupe 100% de la largeur de l'écran */
+            height: auto; /* Garde les proportions */
+            object-fit: cover; /* Couvre entièrement sans distorsion */
         }
 
         /* Flèches de navigation */
@@ -80,7 +79,7 @@
 
         <!-- Slider -->
         <div style="display: flex; justify-content: center; margin: 50px;">
-            <div style="position: relative; width: 80%; max-width: 800px; overflow: hidden;">
+            <div style="position: relative; width: 100vw; max-width: 100%; overflow: hidden;">
                 <div id="image-slider" style="display: flex; transition: transform 0.5s ease;">
                     <!-- Image 1 -->
                     <img src="https://lh3.googleusercontent.com/pw/AP1GczO5TlrpalFyrnLbNOb4ij2jy-OqjGVqE9bgNc840iCAFARzH-qpLm74Ul8a-8_CVKyraq2jqM0V6vDEqgz9Bd1GFeEyth30slOiepANtvKtRSUR7w=w1440-h540-no" alt="Image 1">
@@ -108,21 +107,32 @@
 
             prevButton.addEventListener("click", () => {
                 currentIndex = Math.max(currentIndex - 1, 0);
-                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                slider.style.transform = `translateX(-${currentIndex * 100}vw)`;
                 updateArrows();
             });
 
             nextButton.addEventListener("click", () => {
                 currentIndex = Math.min(currentIndex + 1, slider.children.length - 1);
-                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                slider.style.transform = `translateX(-${currentIndex * 100}vw)`;
                 updateArrows();
             });
 
-            updateArrows(); // Initialize arrows visibility
+            updateArrows(); // Initialisation de la visibilité des flèches
         </script>
     </section>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
