@@ -32,9 +32,10 @@
         }
 
         #image-slider img {
+            flex-shrink: 0;
             width: 100vw; /* Chaque image occupe 100% de la largeur de l'écran */
-            height: auto; /* Garde les proportions de l'image */
-            object-fit: cover; /* Assure que l'image couvre complètement l'espace */
+            height: 100vh; /* Les images s'ajustent à la hauteur de l'écran */
+            object-fit: cover; /* Les images sont couvertes sans déformation */
         }
 
         /* Flèches de navigation */
@@ -67,7 +68,7 @@
 </head>
 <body>
     <header>
-        <h1>Portfolioaa Raphaël Richard</h1>
+        <h1>Portfolio Raphaël Richard</h1>
     </header>
     <section>
         <button id="darkModeToggle">Mode Sombre</button>
@@ -122,8 +123,6 @@
     </section>
 </body>
 </html>
-
-
 
 
 
