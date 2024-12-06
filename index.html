@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,7 +23,14 @@
             padding: 20px;
         }
 
-        /* Styles spécifiques pour l'image */
+        /* Styles spécifiques pour le slider et les images */
+        #image-slider {
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            width: 100%; /* Ajuste le slider pour occuper toute la largeur */
+        }
+
         #image-slider img {
             width: 100%; /* Cela garantit que l'image occupe toute la largeur du conteneur */
             height: auto; /* Conserve les proportions de l'image */
@@ -50,26 +58,25 @@
         #next-button {
             right: 10px;
         }
+
+        /* Boutons mode sombre */
+        body.dark-mode {
+            background-color: #333;
+            color: white;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>PortfolioAOAOAOAO Raphaël Richard</h1>
+        <h1>Portfolio Raphaël Richard</h1>
     </header>
     <section>
-        <h2></h2>
         <button id="darkModeToggle">Mode Sombre</button>
         <script>
             document.getElementById('darkModeToggle').addEventListener('click', function() {
                 document.body.classList.toggle('dark-mode');
             });
         </script>
-        <style>
-            body.dark-mode {
-                background-color: #333;
-                color: #fff;
-            }
-        </style>
 
         <!-- Slider -->
         <div style="display: flex; justify-content: center; margin: 50px;">
@@ -116,6 +123,8 @@
     </section>
 </body>
 </html>
+
+
 
 
 
