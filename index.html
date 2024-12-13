@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfoliiiio Raphaël Richard</title>
+    <title>Portfolio Raphaël Richard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,7 +25,7 @@
             padding: 0;
             margin: 0;
             width: 100vw;
-            height: 100vh;
+            height: calc(90vh); /* Ajuste la hauteur à 90% de l'écran */
             overflow: hidden;
         }
 
@@ -46,9 +45,9 @@
 
         .slider img {
             width: 100%;
-            height: 100%;
+            height: auto; /* Proportionne selon la largeur */
             flex-shrink: 0;
-            object-fit: cover;
+            object-fit: contain; /* Empêche le zoom excessif */
         }
 
         /* Flèches */
@@ -123,11 +122,6 @@
     </script>
 </body>
 </html>
-
-
-
-
-
 
 
 
