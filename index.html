@@ -140,6 +140,74 @@
 
 
 
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Raphaël Richard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #F5F5F5; text-align: center; }
+        header { background: #050505; color: white; padding: 1em 0; }
+        section { margin: 5em 0 0; width: 100%; height: 70vh; overflow: hidden; }
+        .slider { display: flex; height: 100%; transition: 0.5s; }
+        .slider img { width: 100%; object-fit: contain; flex-shrink: 0; }
+        .arrow { position: absolute; top: 50%; background: rgba(255, 255, 255, 0.8); border: none; border-radius: 50%; padding: 15px; cursor: pointer; font-size: 18px; }
+        #prev-button { left: 20px; display: none; }
+        #next-button { right: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Portfolio Raphaël Richard</h1>
+    </header>
+
+    <section>
+        <div style="position: relative; width: 100%; height: 100%;">
+            <div id="slider" class="slider">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOYx_XZfMn1oPlYG3PHoDY1ZgfB4BZMXnWV75YDTebrk9T6itH1Af6wxvEYAQap2cXAuHe6Po2hGL2b7X9oHHJc2Xse-3EmstoQ3uU_E2TtJADJCg=w1440-h540-no">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOYx_XZfMn1oPlYG3PHoDY1ZgfB4BZMXnWV75YDTebrk9T6itH1Af6wxvEYAQap2cXAuHe6Po2hGL2b7X9oHHJc2Xse-3EmstoQ3uU_E2TtJADJCg=w1440-h540-no">
+            </div>
+            <button id="prev-button" class="arrow">&#9664;</button>
+            <button id="next-button" class="arrow">&#9654;</button>
+        </div>
+    </section>
+
+    <script>
+        const slider = document.getElementById("slider"), prev = document.getElementById("prev-button"), next = document.getElementById("next-button");
+        let index = 0;
+        const update = () => {
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            prev.style.display = index === 0 ? "none" : "block";
+            next.style.display = index === slider.children.length - 1 ? "none" : "block";
+        };
+        prev.onclick = () => { index = Math.max(index - 1, 0); update(); };
+        next.onclick = () => { index = Math.min(index + 1, slider.children.length - 1); update(); };
+        update();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
 
         <div style="margin-bottom: 60px;"></div>
