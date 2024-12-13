@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio</title>
+    <title>Portfolio Raphaël Richard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,24 +22,33 @@
             padding: 20px;
         }
 
-        /* Styles spécifiques pour le slider et les images */
-        #image-slider {
+        /* Styles du slider */
+        .slider-container {
             display: flex;
             justify-content: center;
-            width: 100vw; /* Utilise la largeur entière de la fenêtre */
-            overflow: hidden;
+            margin: 50px auto;
             position: relative;
+            width: 80%;
+            max-width: 800px;
+            overflow: hidden;
+            border: 2px solid #ccc;
+            border-radius: 8px;
         }
 
-        #image-slider img {
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .slider img {
+            width: 100%;
             flex-shrink: 0;
-            width: 100vw; /* Chaque image occupe 100% de la largeur de l'écran */
-            height: 100vh; /* Les images s'ajustent à la hauteur de l'écran */
-            object-fit: cover; /* Les images sont couvertes sans déformation */
+            object-fit: cover;
         }
 
-        /* Flèches de navigation */
-        .arrow-button {
+        /* Flèches */
+        .arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -49,20 +58,16 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             cursor: pointer;
             padding: 10px;
+            z-index: 10;
         }
 
         #prev-button {
             left: 10px;
+            display: none; /* Par défaut caché */
         }
 
         #next-button {
             right: 10px;
-        }
-
-        /* Boutons mode sombre */
-        body.dark-mode {
-            background-color: #333;
-            color: white;
         }
     </style>
 </head>
@@ -71,63 +76,48 @@
         <h1>Portfolio Raphaël Richard</h1>
     </header>
     <section>
-        <button id="darkModeToggle">Mode Sombre</button>
-        <script>
-            document.getElementById('darkModeToggle').addEventListener('click', function() {
-                document.body.classList.toggle('dark-mode');
-            });
-        </script>
-
-        <!-- Slider -->
-        <div style="display: flex; justify-content: center; margin: 50px;">
-            <div style="position: relative; width: 100vw; max-width: 100%; overflow: hidden;">
-                <div id="image-slider" style="display: flex; transition: transform 0.5s ease;">
-                    <!-- Image 1 -->
-                    <img src="https://lh3.googleusercontent.com/pw/AP1GczO5TlrpalFyrnLbNOb4ij2jy-OqjGVqE9bgNc840iCAFARzH-qpLm74Ul8a-8_CVKyraq2jqM0V6vDEqgz9Bd1GFeEyth30slOiepANtvKtRSUR7w=w1440-h540-no" alt="Image 1">
-                    <!-- Image 2 -->
-                    <img src="https://lh3.googleusercontent.com/pw/AP1GczOYx_XZfMn1oPlYG3PHoDY1ZgfB4BZMXnWV75YDTebrk9T6itH1Af6wxvEYAQap2cXAuHe6Po2hGL2b7X9oHHJc2Xse-3EmstoQ3uU_E2TtJADJCg=w1440-h540-no" alt="Image 2">
-                </div>
-                <!-- Flèche gauche -->
-                <button id="prev-button" class="arrow-button" style="display: none;">&#9664;</button>
-                <!-- Flèche droite -->
-                <button id="next-button" class="arrow-button">&#9654;</button>
+        <div class="slider-container">
+            <div id="image-slider" class="slider">
+                <!-- Images -->
+                <img src="https://via.placeholder.com/800x400?text=Image+1" alt="Image 1">
+                <img src="https://via.placeholder.com/800x400?text=Image+2" alt="Image 2">
             </div>
+            <!-- Flèches -->
+            <button id="prev-button" class="arrow">&#9664;</button>
+            <button id="next-button" class="arrow">&#9654;</button>
         </div>
-
-        <script>
-            const slider = document.getElementById("image-slider");
-            const prevButton = document.getElementById("prev-button");
-            const nextButton = document.getElementById("next-button");
-
-            let currentIndex = 0;
-
-            function updateArrows() {
-                prevButton.style.display = currentIndex === 0 ? "none" : "block";
-                nextButton.style.display = currentIndex === slider.children.length - 1 ? "none" : "block";
-            }
-
-            prevButton.addEventListener("click", () => {
-                currentIndex = Math.max(currentIndex - 1, 0);
-                slider.style.transform = `translateX(-${currentIndex * 100}vw)`;
-                updateArrows();
-            });
-
-            nextButton.addEventListener("click", () => {
-                currentIndex = Math.min(currentIndex + 1, slider.children.length - 1);
-                slider.style.transform = `translateX(-${currentIndex * 100}vw)`;
-                updateArrows();
-            });
-
-            updateArrows(); // Initialisation de la visibilité des flèches
-        </script>
     </section>
+
+    <script>
+        const slider = document.getElementById("image-slider");
+        const prevButton = document.getElementById("prev-button");
+        const nextButton = document.getElementById("next-button");
+
+        let currentIndex = 0;
+
+        function updateSlider() {
+            // Déplacer le slider en fonction de l'index actuel
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            // Mettre à jour la visibilité des flèches
+            prevButton.style.display = currentIndex === 0 ? "none" : "block";
+            nextButton.style.display = currentIndex === slider.children.length - 1 ? "none" : "block";
+        }
+
+        prevButton.addEventListener("click", () => {
+            currentIndex = Math.max(currentIndex - 1, 0);
+            updateSlider();
+        });
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = Math.min(currentIndex + 1, slider.children.length - 1);
+            updateSlider();
+        });
+
+        // Initialisation des flèches
+        updateSlider();
+    </script>
 </body>
 </html>
-
-
-
-
-
 
 
 
